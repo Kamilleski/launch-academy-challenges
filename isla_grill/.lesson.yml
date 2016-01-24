@@ -1,0 +1,7 @@
+---
+title: "IslaGrill"
+type: "exercise"
+description: "Use flow control to calculate a tip"
+visibility: "public"
+ignore:
+- "isla_grill.md"

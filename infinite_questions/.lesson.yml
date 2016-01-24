@@ -1,0 +1,8 @@
+---
+title: "Infinite Questions"
+type: "exercise"
+description: "write a short program that could loop infinitely"
+tags: "meta, loops"
+visibility: "public"
+ignore:
+- "infinite_questions.md"

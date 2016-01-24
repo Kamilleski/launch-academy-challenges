@@ -1,0 +1,7 @@
+---
+title: "Galapagos Summary"
+type: "exercise"
+description: "Summarize your Galapagos Trip"
+visibility: "public"
+ignore:
+- "galapagos_summary.md"

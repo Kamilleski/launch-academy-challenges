@@ -1,0 +1,7 @@
+---
+title: "99 Bottles of Beer"
+type: "challenge"
+visibility: "onsite"
+description: "Use Ruby to simulate having a fun time."
+ignore:
+- "ninety-nine-bottles.md"

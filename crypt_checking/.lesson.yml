@@ -1,0 +1,8 @@
+---
+title: "Crypt Checking"
+type: "exercise"
+description: "Introduction to contents of arrays arrays in ruby"
+tags: "arrays"
+visibility: "public"
+ignore:
+- "crypt_checking.md"

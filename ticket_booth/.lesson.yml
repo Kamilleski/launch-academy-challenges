@@ -1,0 +1,7 @@
+---
+title: "The Ticket Booth"
+type: "challenge"
+description: "Work with numbers in Ruby to solve this challenge"
+visibility: "public"
+ignore:
+- "ticket_booth.md"

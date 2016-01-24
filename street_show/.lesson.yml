@@ -1,0 +1,8 @@
+---
+title: "The Street Show"
+type: "challenge"
+description: "Getting started with ruby"
+tags: "problem-solving"
+visibility: "public"
+ignore:
+- "street_show.md"

@@ -1,0 +1,7 @@
+---
+title: "Snow Shoveler"
+type: "challenge"
+description: "Calculate pricing for your customers inundated with snow"
+visibility: "public"
+ignore:
+- "snow_shoveler.md"

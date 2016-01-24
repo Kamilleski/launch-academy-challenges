@@ -1,0 +1,8 @@
+---
+title: "Crypt Deletion"
+type: "exercise"
+description: "Introduction to deleting from arrays in ruby"
+tags: "arrays"
+visibility: "public"
+ignore:
+- "crypt_deletion.md"

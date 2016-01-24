@@ -1,0 +1,8 @@
+---
+title: "The Price of Admission"
+type: "exercise"
+description: "Use your knowledge of numbers to calculate the price of admission"
+tags: "problem-solving"
+visibility: "public"
+ignore:
+- "price_of_admission.md"

@@ -1,0 +1,7 @@
+---
+title: "Galapagos Vacation"
+type: "exercise"
+description: "Plan your big vacation"
+visibility: "public"
+ignore:
+- "galapagos_vacation.md"
