@@ -11,4 +11,16 @@ def randomized_greeting(name)
   puts "#{possible_greetings[rand(4)]} #{name}!"
 end
 
-randomized_greeting("Kamille")
+def language_greeting(user_language = nil, name)
+  if user_language == "Spanish"
+    puts "Hola #{name}!"
+  elsif user_language == "Italian"
+    puts "Ciao #{name}!"
+  elsif user_language == "French"
+    puts "Bonjour #{name}!"
+  elsif user_language == "Latin"
+    puts "Salve #{name}!"
+  else
+    puts "Hi #{name}!"
+  end
+end
