@@ -1,3 +1,9 @@
+board_b = [
+  [nil, 'o', 'x'],
+  ['x', 'o', nil],
+  ['x', 'o', nil]
+]
+
 def array_printer(item)
   if item.nil?
     print "   "
@@ -22,3 +28,5 @@ def print_grid(board)
   end
   puts "\n"
 end
+
+puts print_grid(board_b)
