@@ -1,0 +1,8 @@
+---
+title: "Use The (TDD) Force"
+type: "exercise"
+description: "Use TDD to implement methods"
+tags: "tdd, unit-tests, rspec, refactoring"
+ignore:
+  - "use-the-tdd-force.md"
+
