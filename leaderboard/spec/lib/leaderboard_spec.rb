@@ -1,4 +1,5 @@
 require 'spec_helper'
+require '/Users/Andromeda/Google-Drive/Kamilleski/launch-academy-challenges/leaderboard/lib/leaderboard.rb'
 
 RSpec.describe Leaderboard do
   GAME_INFO = [
@@ -35,9 +36,13 @@ RSpec.describe Leaderboard do
   ]
 
   describe ".new" do
-    it "should return a ____" do
+    it "should return an empty team object array as its team_object_array attribute" do
       result = Leaderboard.new(GAME_INFO)
       expect(result.team_object_array).to eq([])
+    end
+    it "should return the array of inputted game data as its game_data attribute" do
+      result = Leaderboard.new(GAME_INFO)
+      expect(result.team_object_array.class).to eq(Array)
     end
   end
 end

@@ -1,5 +1,6 @@
-require "spec_helper"
+require_relative "../spec/spec_helper"
 require_relative "team"
+require 'pry'
 
 class Leaderboard
 GAME_INFO = [
@@ -34,42 +35,49 @@ GAME_INFO = [
       away_score: 31
     }
 ]
-# attr_reader :game_data, :team_object_array
-#
-#   def initialize(game_data, team_object_array = [])
-#     @game_data = game_data
-#     @team_object_array = team_object_array
-#   end
-#
-#   def array_creator
-#     GAME_INFO.each do |game|
-#       ## figuring out who won
-#       if game[:home_score] > game[:away_score]
-#         winning_team = game[:home_team]
-#         losing_team = game[:away_team]
-#       else
-#         winning_team = game[:away_team]
-#         losing_team = game[:home_team]
-#       end
-#
-#       if team_object_array.include?(winning_team)
-#         ## increment team's attribute 'wins' count by one
-#       else
-#         team_object_array << Team.new(winning_team).won_game
-#       end
-#
-#       if team_object_array.include?(losing_team)
-#         ## increment team's losses by one
-#       else
-#         team_object_array << Team.new(winning_team).won_game
-#       end
-#
-#     end
-#   end
-#
-#     # def sorter
-#     #   ##compare wins and losses of Team objects and use a sorting function
-#     # end
-#
-# binding.pry
+attr_reader :game_data, :team_object_array
+
+  def initialize(game_data, team_object_array = [])
+    @game_data = game_data
+    @team_object_array = team_object_array
+  end
+
+  def array_creator
+    GAME_INFO.each do |game|
+      ## figuring out who won
+      if game[:home_score] > game[:away_score]
+        winning_team = game[:home_team]
+        losing_team = game[:away_team]
+      else
+        winning_team = game[:away_team]
+        losing_team = game[:home_team]
+      end
+
+## store teams in hash?
+
+      if team_object_array.any?{ |team| team.name == winning_team }
+        team_index = team_object_array.find_index{|team| team.name == winning_team}
+        team_object_array[team_index].won_game
+      else
+        winners = Team.new(winning_team)
+        winners.won_game
+        team_object_array << winners
+      end
+
+      if team_object_array.any?{ |team| team.name == losing_team }
+        team_index = team_object_array.find_index{|team| team.name == losing_team}
+        team_object_array[team_index].lost_game
+      else
+        losers = Team.new(losing_team)
+        losers.lost_game
+        team_object_array << losers
+      end
+    end
+    team_object_array
+  end
+
+    def sorter
+      ##compare wins and losses of Team objects and use a sorting function
+    end
+    binding.pry
 end
