@@ -37,9 +37,10 @@ GAME_INFO = [
 ]
 attr_reader :game_data, :team_object_array
 
-  def initialize(game_data, team_object_array = [])
+  def initialize(game_data = GAME_INFO, team_object_array = [])
     @game_data = game_data
     @team_object_array = team_object_array
+    array_creator
   end
 
   def array_creator
@@ -53,8 +54,7 @@ attr_reader :game_data, :team_object_array
         losing_team = game[:home_team]
       end
 
-## store teams in hash?
-
+      ## incrementing each team's wins and losses and putting them in an array
       if team_object_array.any?{ |team| team.name == winning_team }
         team_index = team_object_array.find_index{|team| team.name == winning_team}
         team_object_array[team_index].won_game
@@ -78,6 +78,23 @@ attr_reader :game_data, :team_object_array
 
     def sorter
       ##compare wins and losses of Team objects and use a sorting function
+      number_of_teams = team_object_array.length
+      team_object_array.sort!{ |team_1, team_2| (team_1.wins == team_2.wins) ? team_1.wins <=> team_2.wins : team_2.losses <=> team_1.losses }
+      team_object_array.reverse!
+      team_object_array.each_with_index do |team, index|
+        team.rank = index + 1
+      end
     end
-    binding.pry
+
+    def display
+      sorter
+      puts "--------------------------------------------------"
+      puts "| Name      Rank      Total Wins    Total Losses |"
+      team_object_array.each_with_index do |team, index|
+        printf("|%9s %4s %12s %14s      |\n", "#{team.name}", "#{team.rank}", "#{team.wins}", "#{team.losses}")
+      end
+      puts "--------------------------------------------------"
+
+    end
+  binding.pry
 end

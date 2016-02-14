@@ -2,6 +2,8 @@ require 'spec_helper'
 require '/Users/Andromeda/Google-Drive/Kamilleski/launch-academy-challenges/leaderboard/lib/leaderboard.rb'
 
 RSpec.describe Leaderboard do
+  let(:leaderboard) { Leaderboard.new }
+
   GAME_INFO = [
       {
         home_team: "Patriots",
@@ -36,13 +38,32 @@ RSpec.describe Leaderboard do
   ]
 
   describe ".new" do
-    it "should return an empty team object array as its team_object_array attribute" do
-      result = Leaderboard.new(GAME_INFO)
-      expect(result.team_object_array).to eq([])
-    end
     it "should return the array of inputted game data as its game_data attribute" do
-      result = Leaderboard.new(GAME_INFO)
-      expect(result.team_object_array.class).to eq(Array)
+      expect(leaderboard.team_object_array.class).to eq(Array)
     end
   end
+
+## Once we know the object is a Team, the team_spec tests will apply to it
+  describe ".array_creator" do
+    it "should return an array of team objects" do
+      expect(leaderboard.team_object_array[0].class).to eq(Team)
+    end
+  end
+
+  describe ".sorter" do
+    it "should return a sorted array based on most wins and fewest losses" do
+      result = leaderboard.sorter
+      expect(result.first.name).to eq("Patriots")
+      expect(result.last.name).to eq("Colts")
+    end
+    it "should store the most wins first and fewest wins last" do
+      result = leaderboard.sorter
+      expect(result.first.wins).to be > result.last.wins
+    end
+    it "should store fewest losses first and most losses last" do
+      result = leaderboard.sorter
+      expect(result.first.losses).to be < result.last.losses
+    end
+  end
+
 end

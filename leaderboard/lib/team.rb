@@ -1,5 +1,3 @@
-require 'pry'
-
 class Team
   attr_reader :name
   attr_accessor :wins, :losses, :rank
@@ -19,4 +17,3 @@ class Team
     @losses += 1
   end
 end
-binding.pry
