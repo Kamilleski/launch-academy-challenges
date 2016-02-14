@@ -76,25 +76,25 @@ attr_reader :game_data, :team_object_array
     team_object_array
   end
 
-    def sorter
-      ##compare wins and losses of Team objects and use a sorting function
-      number_of_teams = team_object_array.length
-      team_object_array.sort!{ |team_1, team_2| (team_1.wins == team_2.wins) ? team_1.wins <=> team_2.wins : team_2.losses <=> team_1.losses }
-      team_object_array.reverse!
-      team_object_array.each_with_index do |team, index|
-        team.rank = index + 1
-      end
+  def sorter
+    ##compare wins and losses of Team objects and use a sorting function
+    number_of_teams = team_object_array.length
+    team_object_array.sort!{ |team_1, team_2| (team_1.wins == team_2.wins) ? team_1.wins <=> team_2.wins : team_2.losses <=> team_1.losses }
+    team_object_array.reverse!
+    team_object_array.each_with_index do |team, index|
+      team.rank = index + 1
     end
+  end
 
-    def display
-      sorter
-      puts "--------------------------------------------------"
-      puts "| Name      Rank      Total Wins    Total Losses |"
-      team_object_array.each_with_index do |team, index|
-        printf("|%9s %4s %12s %14s      |\n", "#{team.name}", "#{team.rank}", "#{team.wins}", "#{team.losses}")
-      end
-      puts "--------------------------------------------------"
-
+  def display
+    sorter
+    puts "--------------------------------------------------"
+    puts "| Name      Rank      Total Wins    Total Losses |"
+    team_object_array.each_with_index do |team, index|
+      printf("|%9s %4s %12s %14s      |\n", "#{team.name}", "#{team.rank}", "#{team.wins}", "#{team.losses}")
     end
+    puts "--------------------------------------------------"
+
+  end
   binding.pry
 end
