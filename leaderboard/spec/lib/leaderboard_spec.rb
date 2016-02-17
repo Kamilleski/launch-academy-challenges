@@ -50,9 +50,6 @@ RSpec.describe Leaderboard do
     end
   end
 
-##POSSIBLE TEST:
-# Add more team data and see if the array still sorts/ranks correctly
-
   describe ".sorter" do
     it "should return a sorted array based on most wins and fewest losses" do
       result = leaderboard.sorter
@@ -69,4 +66,11 @@ RSpec.describe Leaderboard do
     end
   end
 
+  ## I know the method displays a serie of strings, but it *returns* nil. I am
+  ## unsure how to test for the string displays
+  describe ".display" do
+    it "should display a series of strings" do
+      expect(leaderboard.display).to eq(nil)
+    end
+  end
 end

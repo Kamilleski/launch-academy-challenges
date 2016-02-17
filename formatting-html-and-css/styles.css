@@ -1,0 +1,18 @@
+body {
+  font-family: Arial;
+  background-color: rgba(245, 245, 238, 1);
+  margin: 20px;
+}
+
+header {
+  background-color: rgba(224, 101, 22,1);
+  padding: 5px;
+
+}
+img {
+  max-width: 300px;
+}
+
+title {
+  font-family: courier;
+}

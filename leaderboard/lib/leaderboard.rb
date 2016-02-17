@@ -1,8 +1,10 @@
 require_relative "../spec/spec_helper"
 require_relative "team"
-require 'pry'
 
 class Leaderboard
+
+attr_reader :game_data, :team_object_array
+
 GAME_INFO = [
     {
       home_team: "Patriots",
@@ -35,7 +37,6 @@ GAME_INFO = [
       away_score: 31
     }
 ]
-attr_reader :game_data, :team_object_array
 
   def initialize(game_data = GAME_INFO, team_object_array = [])
     @game_data = game_data
@@ -94,7 +95,5 @@ attr_reader :game_data, :team_object_array
       printf("|%9s %4s %12s %14s      |\n", "#{team.name}", "#{team.rank}", "#{team.wins}", "#{team.losses}")
     end
     puts "--------------------------------------------------"
-
   end
-  binding.pry
 end
