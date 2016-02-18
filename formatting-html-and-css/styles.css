@@ -1,18 +1,37 @@
 body {
-  font-family: Arial;
+  font-family: Verdana;
   background-color: rgba(245, 245, 238, 1);
   margin: 20px;
 }
 
 header {
   background-color: rgba(224, 101, 22,1);
-  padding: 5px;
-
+  text-align: center;
 }
 img {
   max-width: 300px;
 }
 
-title {
+h3 {
+  font-weight: bold;
+}
+
+.block {
+    display: inline-block;
+    width: auto;
+}
+
+.website-name {
   font-family: courier;
+  font-size: 25px;
+  font-weight: bold;
+  color: white;
+  float: left;
+  padding-bottom: 5px;
+  padding-left: 5px;
+}
+
+.website-motto {
+  font-weight: bold;
+  padding: 5px
 }
