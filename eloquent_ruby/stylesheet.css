@@ -1,0 +1,14 @@
+body {
+  background-color: red;
+}
+
+.nav {
+  padding: 0;
+  margin: 0;
+}
+
+.nav li {
+  list-style: none;
+  display: inline-block;
+
+}
