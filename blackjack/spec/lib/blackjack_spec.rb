@@ -4,8 +4,10 @@ RSpec.describe Game do
 
   let(:game) { Game.new }
   let(:ace_hearts) { Card.new("A", "♥") }
-  let(:two_hearts) { Card.new("2", "♥") }
+  let(:two_hearts) { Card.new(2, "♥") }
   let(:king_hearts) { Card.new("K", "♥") }
+  let(:six_hearts) { Card.new(6, "♥") }
+  let(:king_spades) {Card.new("K", "♠" )}
 
   describe ".new" do
     it "should initialize player and dealer scores of zero" do
@@ -67,11 +69,11 @@ RSpec.describe Game do
   end
 
   describe "#check_dealer_score" do
-    it "should add one Card to dealer Hand if score is < 17" do
-      
-    end
-    it "should state dealer score each time" do
-
+    it "should add Card to dealer Hand if score is < 17" do
+      game.dealer.cards << six_hearts
+      game.dealer.cards << king_hearts
+      game.check_dealer_score
+      expect(game.dealer.cards.size).to be > 2
     end
   end
 

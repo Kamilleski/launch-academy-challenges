@@ -107,7 +107,5 @@ class Game
       puts "Tie!"
     end
   end
-  #
-  # new_game = Game.new
-  # new_game.begin_game
+
 end
