@@ -11,5 +11,4 @@ RSpec.describe Hand do
       expect(test_hand.cards[1].suit).to eq("♥")
     end
   end
-  # Your tests here
 end

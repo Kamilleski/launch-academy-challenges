@@ -1,5 +1,4 @@
 class Card
-
   attr_accessor :rank, :suit, :value
 
   def initialize(rank, suit)
@@ -14,7 +13,7 @@ class Card
     elsif @rank.include?("J") || @rank.include?("Q") || @rank.include?("K")
       @value = 10
     elsif @rank == "A"
-      @value = 1
+      @value = 11
     end
   end
 end

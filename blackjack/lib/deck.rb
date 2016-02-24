@@ -2,10 +2,11 @@ require_relative "card"
 require_relative "hand"
 
 class Deck
+
   SUITS = ['♦', '♣', '♠', '♥']
   RANKS = [2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 'A']
 
-  attr_accessor :cards
+  attr_accessor :cards, :deal
 
   def initialize
     @cards = build_deck
