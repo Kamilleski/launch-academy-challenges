@@ -12,7 +12,4 @@ RSpec.describe Occupant do
       expect(kamille.last_name).to eq("Delgardo")
     end
   end
-
-
-
 end
