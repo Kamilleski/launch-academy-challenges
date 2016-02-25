@@ -1,18 +1,15 @@
 require 'spec_helper'
 
-RSpec.describe House do
+RSpec.describe Dwelling do
 
-  let(:hub_house) { House.new("50 Temple St.", "Somerville", "MA", "02145", "$500000")}
+  let(:yurt) { Dwelling.new("001 Compass Ave.", "North Pole", "AN", "99999")}
 
   describe ".new" do
     it "should have a street address" do
-      expect(hub_house.address).to eq("50 Temple St.")
+      expect(yurt.address).to eq("001 Compass Ave.")
     end
     it "should reside in a city or town" do
-      expect(hub_house.city).to eq("Somerville")
-    end
-    it "should have an asking price" do
-      expect(hub_house.asking_price).to eq("$500000")
+      expect(yurt.city).to eq("North Pole")
     end
   end
 end
