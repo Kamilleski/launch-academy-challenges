@@ -30,4 +30,8 @@ class Cohort
     end
     output
   end
+
+  def system_check_completed?(system_check)
+    system_check.submissions.length == @students.length
+  end
 end
