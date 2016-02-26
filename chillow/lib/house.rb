@@ -10,5 +10,4 @@ class House < Dwelling
     @zip_code = zip_code
     @asking_price = asking_price
   end
-
 end

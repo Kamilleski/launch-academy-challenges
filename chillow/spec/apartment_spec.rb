@@ -24,9 +24,9 @@ RSpec.describe Apartment do
 
   describe "#full?" do
     it "should return true when at max occupancy" do
-      co_ops.add_roommate("Kamille", "Delgardo")
-      co_ops.add_roommate("Will", "Mahoney")
-      co_ops.add_roommate("Nick", "Alberts")
+      co_ops.add_item("Kamille", "Delgardo")
+      co_ops.add_item("Will", "Mahoney")
+      co_ops.add_item("Nick", "Alberts")
       expect(co_ops.full?).to eq(true)
     end
     it "should return false when there is space left" do
@@ -34,20 +34,20 @@ RSpec.describe Apartment do
     end
   end
 
-  describe "#add_roommate" do
+  describe "#add_item" do
     it "should add an Occupant to the Apartment" do
-      co_ops.add_roommate("Jimmy", "Do")
-      expect(co_ops.roommates.length).to eq(1)
+      co_ops.add_item("Jimmy", "Do")
+      expect(co_ops.current_contents.length).to eq(1)
     end
   end
 
-  describe "#remove_roommate" do
+  describe "#remove_item" do
     it "should remove the first Occupant of the Apartment" do
-      co_ops.add_roommate("Kamille", "Delgardo")
-      co_ops.add_roommate("Will", "Mahoney")
-      co_ops.add_roommate("Nick", "Alberts")
-      co_ops.remove_roommate
-      expect(co_ops.roommates.length).to eq(2)
+      co_ops.add_item("Kamille", "Delgardo")
+      co_ops.add_item("Will", "Mahoney")
+      co_ops.add_item("Nick", "Alberts")
+      co_ops.remove_item
+      expect(co_ops.current_contents.length).to eq(2)
     end
   end
 end

@@ -7,5 +7,4 @@ class Dwelling
     @state = state
     @zip_code = zip_code
   end
-
 end

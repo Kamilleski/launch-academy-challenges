@@ -1,13 +1,14 @@
 require_relative "dwelling"
 require_relative "occupant"
 require 'Date'
+require_relative "item_methods"
 
 class Apartment < Dwelling
-  attr_reader :price_per_month, :lease_start, :lease_end, :max_occupancy
+  include Item_Methods
 
-  attr_accessor :roommates
+  attr_reader :price_per_month, :lease_start, :lease_end
 
-  def initialize(address, city, state, zip_code, price_per_month, lease_start, lease_end, max_occupancy = 3)
+  def initialize(address, city, state, zip_code, price_per_month, lease_start, lease_end, max_capacity = 3)
     @address = address
     @city = city
     @state = state
@@ -15,22 +16,13 @@ class Apartment < Dwelling
     @price_per_month = price_per_month
     @lease_start = lease_start
     @lease_end = lease_end
-    @max_occupancy = max_occupancy
-    @roommates = []
+    @max_capacity = max_capacity
+    @current_contents = []
   end
 
-  def full?
-    @roommates.length == max_occupancy
-  end
-
-  def add_roommate(first_name, last_name)
+  def add_item(first_name, last_name)
     if !full?
-      @roommates << Occupant.new(first_name, last_name)
+      @current_contents << Occupant.new(first_name, last_name)
     end
-  end
-
-  def remove_roommate
-    @roommates.pop
-    @roommates
   end
 end
