@@ -1,4 +1,6 @@
-class SystemCheck
+require_relative "lesson"
+
+class SystemCheck < Lesson
   attr_accessor :submissions
 
   def initialize(name, due_date)
@@ -28,5 +30,9 @@ class SystemCheck
       end
     end
     result
+  end
+
+  def submittable?
+    true
   end
 end

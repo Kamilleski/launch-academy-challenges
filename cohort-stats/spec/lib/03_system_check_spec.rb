@@ -20,6 +20,12 @@ describe SystemCheck do
     end
   end
 
+  describe "#submittable?" do
+    it "should be submittable" do
+      expect(system_check.submittable?).to eq(true)
+    end
+  end
+
   describe "#add_submission" do
     it "takes in a Submission object and stores it" do
       student = Student.new("Jane Smith", "jane.smith@gmail.com")
