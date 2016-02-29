@@ -1,8 +1,6 @@
-# Run the code. Change it so that it looks like the required output.
-
 require 'erb'
 
-recipe = {
+@recipe = {
   name: "Roasted Brussels Sprouts",
   ingredients: [
     "1 1/2 pounds Brussels sprouts",
@@ -24,38 +22,27 @@ recipe = {
 
 }
 
-recipe_title = "Recipe: #{recipe[:name]}"
-puts recipe_title
-puts "\n"
-puts "Ingredients"
-puts "-----------"
-puts "\n"
-recipe[:ingredients].each do |ingredient|
-  puts ingredient
-end
-puts "\n"
-puts "Directions"
-puts "----------"
-puts "\n"
-counter = 1
-recipe[:directions].each do |direction|
-  print "#{counter}. "
-  puts direction
-  puts "\n"
-  counter += 1
-end
+recipe_title = "Recipe: #{@recipe[:name]}"
 
+recipe_template = <<-ERB
 
-# recipe_template = <<-ERB
-#
-# #=<%= "=" * recipe_title.length %>=#
-# # <%= recipe_title %> #
-# #=<%= "=" * recipe_title.length %>=#
-#
-# Ingredients
-# -----------
-#
-# ERB
-#
-# erb = ERB.new(recipe_template)
-# puts erb.result
+#=<%= "=" * recipe_title.length %>=#
+# <%= recipe_title %> #
+#=<%= "=" * recipe_title.length %>=#
+
+Ingredients
+-----------
+<% @recipe[:ingredients].each do |ingredient| %>
+<%= ingredient %>
+<% end %>
+
+Directions
+-----------
+<% @recipe[:directions].each_with_index do |direction, index| %>
+<%= index + 1 %>. <%= direction %>
+<% end %>
+
+ERB
+
+erb = ERB.new(recipe_template)
+puts erb.result
