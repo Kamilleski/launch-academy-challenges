@@ -1,0 +1,9 @@
+<h2>Teams List</h2>
+
+<ul>
+  <% @team_name_array.each do |team| %>
+  <li>
+    <a href="teams/<%= team %>"><%= team %></a>
+  </li>
+  <% end %>
+</ul>
