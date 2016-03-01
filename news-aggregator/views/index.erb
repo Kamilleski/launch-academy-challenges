@@ -9,9 +9,11 @@
 
     <ul>
       <% @articles.each do |article| %>
-        <li><%= article %></li>
+      <li><a href="https://<%= article[1] %>" target="_blank"><%= article[0] %></a>: <%= article[2] %></li>
       <% end %>
     </ul>
+
+    <a href="/articles/new">Submit a new article!</a>
 
   </body>
 </html>
