@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'sinatra/reloader'
-require 'pg'
 
 configure :development, :test do
   require 'pry'
