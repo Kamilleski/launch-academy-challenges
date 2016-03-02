@@ -37,6 +37,7 @@ feature "User checks a recipe's deliciousness", %(
     click_link 'Try again!'
 
     expect(page).to have_content('Recipe Evaluation Machine')
+    expect(page).to have_css('form > input#recipe_name')
   end
 
   scenario "user submits an empty form" do
