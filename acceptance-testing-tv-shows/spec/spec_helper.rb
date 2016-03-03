@@ -1,6 +1,7 @@
 ENV["RACK_ENV"] ||= "test"
 require "rspec"
 require "capybara/rspec"
+require "launchy"
 
 require_relative "../server"
 require_relative "../app/models/television_show"

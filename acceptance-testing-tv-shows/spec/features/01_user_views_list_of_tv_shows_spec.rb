@@ -22,6 +22,7 @@ feature "user views list of TV shows" do
 
     visit "/television_shows"
 
-    expect(page).to have_content("Friends (NBC)")
+    expect(page).to have_content "List of Shows"
+    expect(page).to have_content "Friends (NBC)"
   end
 end

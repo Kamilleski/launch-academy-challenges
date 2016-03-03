@@ -1,1 +1,60 @@
-<h1>Add Show Details</h1>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Submit a TV Show!</title>
+  </head>
+
+  <body>
+    <h2>Submit a TV Show</h2>
+
+    <% if @empty_error %>
+    <h3>Error! <%= @empty_error %></h3>
+    <% end %>
+
+    <% if @duplicate_error %>
+    <h3>Error! <%= @duplicate_error %></h3>
+    <% end %>
+
+    <form action="/television_shows/new" method="post">
+      <div>
+        <label for="title">New Show Title:</label>
+        <input type="text" id="title" name="title" >
+      </div>
+
+      <div>
+        <label for="network">New Show Network:</label>
+        <input type="text" id="network" name="network" >
+      </div>
+
+      <div>
+        <label for="starting_year">New Show Starting Year:</label>
+        <input type="number" id="starting_year" name="starting_year" >
+      </div>
+
+      <div>
+        <label for="synopsis">New Show Synopsis:</label>
+        <input type="text" id="synopsis" name="synopsis" >
+      </div>
+
+      <div>
+        <label for="genre">New Show Genre: </label>
+        <select id="genre" name="Genre" >
+          <option value="Action">Action</option>
+          <option value="Myster">Mystery</option>
+          <option value="Drama">Drama</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Fantasy">Fantasy</option>
+        </select>
+      </div>
+
+      <br>
+
+      <input type="submit" value="Add TV Show"/>
+
+      <br>
+
+      <a href="/television_shows">TV List<a/>
+
+    </form>
+  </body>
+  </html>
