@@ -2,7 +2,7 @@ require "net/http"
 require "json"
 
 class Geolocation
-  attr_reader :ip
+  attr_reader :ip, :data
 
   def initialize(ip)
     @ip = ip
@@ -28,6 +28,7 @@ class Geolocation
 
   private
   def get_location
+    response = Net::HTTP.get_response(uri)
     JSON.parse(response.body)
   end
 
