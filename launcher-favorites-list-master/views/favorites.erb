@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<header>
+  <h1>Favorite things</h1>
+</header>
+
+<body>
+  <h1>Favorite Things</h1>
+  <ul>
+    <% @favorites.each do |row| %>
+    <li>
+      <%= row %>
+    </li>
+    <% end %>
+  </ul>
+  <form action="/favorites" method="post">
+    <label for="favorite_thing">Add New Favorite Thing: </label>
+    <input type="text" name="favorite_thing" id="favorite_thing"></input>
+    <input type="submit" value="Add"/>
+  </form>
+</body>
