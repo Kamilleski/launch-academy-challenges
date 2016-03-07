@@ -1,7 +1,8 @@
 require 'sinatra'
+require 'csv'
 
 get "/" do
-erb :index
+  redirect "/launcher-bucket-list"
 end
 
 get "/launcher-bucket-list" do
@@ -11,9 +12,10 @@ end
 
 post "/launcher-bucket-list" do
   list_item = params[:list_item]
+  item_quantity = params[:item_quantity]
   unless list_item.strip.empty?
     CSV.open("bucket_list.csv", "a") do |file|
-      file << [list_item]
+      file.puts([list_item, item_quantity])
     end
   redirect "/launcher-bucket-list"
   end
