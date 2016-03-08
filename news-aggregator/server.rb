@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'csv'
+require 'pg'
 
 get '/' do
   redirect '/articles'

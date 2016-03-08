@@ -11,8 +11,9 @@ def db_connection
 end
 
 CSV.foreach("ingredients.csv") do |row|
-  sql = "INSERT INTO ingredients (ingredient) VALUES ('#{row[1]}')"
-  db_connection { |conn| conn.exec(sql) }
+  var = row[1]
+  sql = "INSERT INTO ingredients (ingredient) VALUES ($1)"
+  db_connection { |conn| conn.exec_params(sql, [var]) }
 end
 
 printer = "SELECT ingredient FROM ingredients"
