@@ -1,6 +1,7 @@
 require "sinatra"
 require "pg"
 require_relative "./app/models/article"
+require 'pry'
 
 set :views, File.join(File.dirname(__FILE__), "app", "views")
 
@@ -26,7 +27,7 @@ get '/' do
 end
 
 get '/articles' do
-  printer = "SELECT title, url, description FROM articles"
+  printer = "SELECT title, url, description FROM articles;"
   @response = db_connection { |conn| conn.exec(printer) }
 
   erb :index
@@ -37,7 +38,7 @@ post '/articles/new' do
   @url = params['url']
   @description = params['description']
 
-  sql = "INSERT INTO articles (title, url, description) VALUES ($1, $2, $3)"
+  sql = "INSERT INTO articles (title, url, description) VALUES ($1, $2, $3);"
 
   db_connection do |conn|
     conn.exec_params(sql, [@title, @url, @description])

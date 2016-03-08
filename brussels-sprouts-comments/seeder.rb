@@ -25,3 +25,5 @@ TITLES.each do |title|
   sql = "INSERT INTO recipes (recipe) VALUES ($1)"
   db_connection { |conn| conn.exec_params(sql, [title]) }
 end
+
+## MAKE UP COMMENTS AND INSERT

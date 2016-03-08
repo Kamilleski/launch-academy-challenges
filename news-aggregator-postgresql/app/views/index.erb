@@ -3,7 +3,7 @@
 
 <ul>
   <% @response.each do |article| %>
-  <li><a href="<%= article[@url] %>" target="_blank"><%= article[@title] %></a>: <%= article[@description] %></li>
+  <li><a href="<%= article["url"] %>" target="_blank"><%= article["title"] %></a>: <%= article["description"] %></li>
   <% end %>
 </ul>
 
