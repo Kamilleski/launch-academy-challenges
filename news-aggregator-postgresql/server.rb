@@ -3,6 +3,34 @@ require "pg"
 require_relative "./app/models/article"
 require 'pry'
 
+## Can't get rspec tests to pass:
+#
+# 1) user adds article user successfully adds an article
+#     Failure/Error: click_button "Submit"
+# 
+#     NoMethodError:
+#       undefined method `status=' for #<PG::Result:0x007fd5eaa91cb8>
+#     # ./spec/features/user_adds_article_spec.rb:13:in `block (2 levels) in <top (required)>'
+#     # ------------------
+#     # --- Caused by: ---
+#     # NoMethodError:
+#     #   undefined method `headers' for #<PG::Result:0x007fd5eaa91cb8>
+#     #   ./spec/features/user_adds_article_spec.rb:13:in `block (2 levels) in <top (required)>'
+#
+#  2) user sees all articles user views articles with their title, url, and description
+#     Failure/Error: visit "/articles"
+#
+#     NoMethodError:
+#       undefined method `status=' for #<PG::Result:0x007fd5eaa74be0>
+#     # ./spec/features/user_sees_articles_spec.rb:18:in `block (2 levels) in <top (required)>'
+#     # ------------------
+#     # --- Caused by: ---
+#     # NoMethodError:
+#     #   undefined method `headers' for #<PG::Result:0x007fd5eaa74be0>
+#     #   ./spec/features/user_sees_articles_spec.rb:18:in `block (2 levels) in <top (required)>'
+
+
+
 set :views, File.join(File.dirname(__FILE__), "app", "views")
 
 configure :development do

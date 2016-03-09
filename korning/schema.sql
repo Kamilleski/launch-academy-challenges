@@ -18,13 +18,19 @@ CREATE TABLE customers (
   -- UNIQUE (name, account_number)
 );
 
+CREATE TABLE products (
+  id SERIAL PRIMARY KEY,
+  product_name VARCHAR(255) NOT NULL
+);
+
 CREATE TABLE sales (
   id SERIAL PRIMARY KEY,
-  employee_id INTEGER REFERENCES employees(id),
-  customer_id INTEGER REFERENCES customers(id),
   sale_date DATE NOT NULL,
   sale_amount NUMERIC NOT NULL,
   units_sold INTEGER NOT NULL,
   invoice_number INTEGER NOT NULL,
-  invoice_frequency VARCHAR(255) NOT NULL
+  invoice_frequency VARCHAR(255) NOT NULL,
+  employee_id INTEGER REFERENCES employees(id),
+  customer_id INTEGER REFERENCES customers(id),
+  product_id INTEGER REFERENCES products(id)
 );
