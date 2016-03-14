@@ -1,0 +1,29 @@
+<h1><%=  @specific_movie[0]["movie_name"]  %></h1>
+
+<ul>
+  <li>Release Year: <%= @specific_movie[0]["year"] %> </li>
+  <li>Genre: <%= @specific_movie[0]["genre_name"] %> </li>
+  <li>Studio: <%= @specific_movie[0]["studio_name"] %> </li>
+  <li>Rating: <%= @specific_movie[0]["rating"] %> </li>
+  <li>Synopsis: <%= @specific_movie[0]["synopsis"] %> </li>
+  <li>
+    Character list:
+    <table style="width:100%">
+    <tr>
+      <th>Character</th>
+      <th>Actor</th>
+    </tr>
+
+    <% @characters.each do |character| %>
+
+    <tr>
+      <td><%= character["character_name"] %></td>
+      <td><a href="/actors/<%= character["actor_id"] %>"><%= character["actor_name"] %></a></td>
+    </tr>
+
+    <% end %>
+    </table>
+  </li>
+</ul>
+
+<a href="/movies">Back to Movies List</a>

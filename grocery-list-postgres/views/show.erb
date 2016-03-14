@@ -1,0 +1,11 @@
+<h1> <%=  @grocery["name"] %></h1>
+
+<ul>
+  <% @comments.each do |comment| %>
+  <li>
+    <%= comment["body"] %>
+  </li>
+  <% end %>
+</ul>
+
+<a href="/groceries">Back to List</a>

@@ -1,9 +1,13 @@
 <h2>Articles</h2>
 <h3>User Submitted</h3>
-
+<% binding.pry %>
 <ul>
   <% @response.each do |article| %>
+  <% binding.pry %>
+
   <li><a href="<%= article["url"] %>" target="_blank"><%= article["title"] %></a>: <%= article["description"] %></li>
+  <% binding.pry %>
+  
   <% end %>
 </ul>
 
