@@ -1,0 +1,13 @@
+<% if @event_created %>
+  <h1><%= @event_created %></h1>
+<% end %>
+<h1>Meetup details for '<%= @meetup.name %>'</h1>
+
+<ul>
+  <li>Name: <%= @meetup.name %></li>
+  <li>Description: <%= @meetup.description %></li>
+  <li>Location: <%= @meetup.location %></li>
+  <li>Creator:</li>
+</ul>
+
+<input type="submit" value="Join Meetup"/>
