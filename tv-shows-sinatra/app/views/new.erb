@@ -1,3 +1,7 @@
+<% if @missing_fields %>
+  <h1><%= @error_message %></h1>
+<% end %>
+
 <h1>Add Show</h1>
 
 <form action="/television_shows" method="post">

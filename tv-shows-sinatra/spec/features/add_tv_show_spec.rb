@@ -16,6 +16,34 @@ feature "user adds a new TV show" do
   # * If any of the above validations fail, the form should be
   #   re-displayed with the failing validation message.
 
-  pending "successfully add a new show"
-  pending "fail to add a show with invalid information"
+  scenario "successfully add a new show" do
+    visit "/television_shows/new"
+
+    fill_in "title", with: "Battlestar Galactica"
+    fill_in "network", with: "SciFi"
+    fill_in "starting_year", with: "2000"
+    fill_in "ending_year", with: "2005"
+    select "Fantasy", :from => "genre"
+    fill_in "synopsis", with: "The last humans search for Earth and battle Cylons."
+
+    click_button("Add TV Show")
+
+    expect(page).to have_content("Battlestar Galactica (SciFi)")
+  end
+
+  scenario "fail to add a show with invalid information" do
+    visit "/television_shows/new"
+
+    fill_in "title", with: ""
+    fill_in "network", with: "SciFi"
+    fill_in "starting_year", with: "2000"
+    fill_in "ending_year", with: "2005"
+    select "Fantasy", :from => "genre"
+    fill_in "synopsis", with: "The last humans search for Earth and battle Cylons."
+
+    click_button("Add TV Show")
+
+    expect(page).to_not have_content("Battlestar Galactica (SciFi)")
+    expect(page).to have_content("Data not saved")
+  end
 end
