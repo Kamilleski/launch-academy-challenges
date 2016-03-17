@@ -34,7 +34,6 @@ feature "User joins meetup" do
     meetup_1
     visit "/meetups"
 
-    save_and_open_page
     click_link "Music for Musical Peoples"
 
     expect(page).to have_button "Join Meetup"
