@@ -1,0 +1,15 @@
+<p>
+  <strong>Title:</strong>
+  <%= @question.title %>
+</p>
+
+<p>
+  Submitted by: <%= @submitter %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @question.description %>
+</p>
+
+<%= link_to 'Back to Questions list', root_path %>
