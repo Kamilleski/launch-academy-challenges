@@ -1,0 +1,43 @@
+<h1>New Wing Order</h1>
+<%= form_for(@wing_order) do |f| %>
+  <div class="row">
+    <%= f.label :customer_name, "Full Name" %><br />
+    <%= f.text_field :customer_name %>
+  </div>
+
+  <div class="row">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+
+  <div class="row">
+      <%= f.label :state, "State" %><br />
+      <%= f.select(:state, options_for_select(@state_collection)) %>
+  </div>
+
+  <div class="row">
+    <%= f.label :quantity %> <br />
+    <%= f.collection_radio_buttons :quantity, @quantity_collection, :first, :last %>
+  </div>
+
+  <div class="row">
+    <label for="wing_order_ranch_dressing">Add Ranch Dressing</label>
+    <input name="wing_order[ranch_dressing]" type="hidden" value="0">
+    <input type="checkbox" value="1" name="wing_order[ranch_dressing]" id="wing_order_ranch_dressing">
+  </div>
+
+  <div class="row">
+    <label for="wing_order_flavor_ids">Flavors</label>
+
+    <% @flavor_collection.each do |flavor| %>
+      <input type="checkbox" value="<%= flavor.id %>" name="wing_order[flavor_ids][]" id="<%= "#{flavor.id}" %>">
+      <label for="<%= "#{flavor.id}" %>"><%= "#{flavor.name}" %></label>
+    <% end %>
+
+    <input type="hidden" name="wing_order[flavor_ids][]" value="">
+  </div>
+
+  <div class="row">
+    <input type="submit" name="commit" value="Place Order">
+  </div>
+<% end %>

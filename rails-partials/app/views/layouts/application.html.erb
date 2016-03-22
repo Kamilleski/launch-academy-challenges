@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EventTracker</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <header>
+    <%= render "layouts/menu_list" %>
+  </header>
+    <%= render "layouts/flash" %>
+  <section id="main">
+    <%= yield %>
+  </section>
+  <section id="sidebar">
+    <% controller.action_name %>
+    <%= render "layouts/sidebar" %>
+  </section>
+  <footer></footer>
+</body>
