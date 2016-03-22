@@ -21,23 +21,16 @@
   </div>
 
   <div class="row">
-    <label for="wing_order_ranch_dressing">Add Ranch Dressing</label>
-    <input name="wing_order[ranch_dressing]" type="hidden" value="0">
-    <input type="checkbox" value="1" name="wing_order[ranch_dressing]" id="wing_order_ranch_dressing">
+    <%= f.label :ranch_dressing, "Add Ranch Dressing" %> <br />
+    <%= f.check_box :ranch_dressing, { :checked_value => true, :unchecked_value => false }  %>
   </div>
 
   <div class="row">
-    <label for="wing_order_flavor_ids">Flavors</label>
-
-    <% @flavor_collection.each do |flavor| %>
-      <input type="checkbox" value="<%= flavor.id %>" name="wing_order[flavor_ids][]" id="<%= "#{flavor.id}" %>">
-      <label for="<%= "#{flavor.id}" %>"><%= "#{flavor.name}" %></label>
-    <% end %>
-
-    <input type="hidden" name="wing_order[flavor_ids][]" value="">
+    <%= f.label :flavor_ids %>
+    <%= f.collection_check_boxes :flavor_ids, @flavor_collection, :id, :name %>
   </div>
 
   <div class="row">
-    <input type="submit" name="commit" value="Place Order">
+    <%= button_tag "Place Order" %>
   </div>
 <% end %>

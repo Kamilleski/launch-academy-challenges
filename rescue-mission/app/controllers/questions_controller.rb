@@ -24,6 +24,18 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def edit
+  
+  end
+
+  def updated
+
+  end
+
+  def desetroy
+
+  end
+
   private
 
   def question_params

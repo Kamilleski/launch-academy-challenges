@@ -11,5 +11,6 @@
   <strong>Description:</strong>
   <%= @question.description %>
 </p>
+<%= link_to 'I can answer this!', new_question_answer_path(@question.id) %>
 
 <%= link_to 'Back to Questions list', root_path %>
