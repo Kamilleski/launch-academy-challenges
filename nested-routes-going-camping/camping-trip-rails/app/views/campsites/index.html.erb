@@ -1,0 +1,7 @@
+<h1> <%= @title %> </h2>
+
+<ul>
+  <% @campsites.each do |campsite| %>
+    <l1> <%= link_to campsite.name, campsite_campers_path(campsite) %>
+  <% end %>
+</ul>
