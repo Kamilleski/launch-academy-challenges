@@ -14,16 +14,21 @@
 <%= link_to 'I can answer this!', new_question_answer_path(@question) %><br />
 
 <p>
-  <strong>Answers:</strong>
+  <strong>Answers:</strong><br />
+  <% @message %>
   <ul>
-    <% @answers.each do |answer| %>
-      <li>
-        <%= answer.body %>
-      </li>
+    <% unless @answers.nil? %>
+      <% @answers.each do |answer| %>
+        <li>
+          <%= answer.body %>
+        </li>
+      <% end %>
     <% end %>
   </ul>
-
 </p>
+
+<%= link_to "Edit Question", edit_question_path(@question) %><br />
+<%= link_to "Delete Question", @question, method: :delete %><br />
 
 
 <%= link_to 'Back to Questions list', root_path %>
