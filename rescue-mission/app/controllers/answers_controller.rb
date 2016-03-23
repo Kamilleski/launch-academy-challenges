@@ -18,7 +18,7 @@ class AnswersController < ApplicationController
     @error = true
     if @answer.save
       @error = false
-      render :root
+      redirect_to question_path(@question)
     else
       flash[:error] = "Invalid form submission"
       render :new
@@ -28,7 +28,7 @@ class AnswersController < ApplicationController
   private
 
   def answer_params
-    params.require(:answer).permit(:body, :question_id)
+    params.require(:answer).permit(:body)
   end
 
 end

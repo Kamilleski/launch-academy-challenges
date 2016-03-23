@@ -1,4 +1,5 @@
-<h1>New Answer for <%= @question.title%></h1>
+<h2>New Answer for:</h2>
+<h3><%= @question.title%></h3>
 <% if @error %>
   <%= flash[:error] %>
 <% end %>
@@ -6,8 +7,7 @@
 <%= form_for [@question, @answer] do |f| %>
   <div class="field">
     <%= f.label :body, "Answer: " %><br />
-    <%= f.text_area :body %> <br />
-    <%= f.text_field :question_id, :value => params[:question_id] %>
+    <%= f.text_area :body, size: "30x10" %> <br />
   </div>
 
   <div class="actions">

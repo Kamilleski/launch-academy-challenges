@@ -19,9 +19,14 @@ feature 'submits an answer' do
 
     click_on "I can answer this!"
 
-    expect(page).to have_content("Answer: ")
     expect(page).to have_selector('form')
 
+    fill_in 'Answer', with: "Really character limits are meant to inspire longer answers but all they do is make people like me angry that we have to submit to The Man in yet another way. Goddamn character limits and fuck the man."
+
     click_on 'Create Answer'
+
+    expect(page).to have_content("Answers:")
+    expect(page).to_not have_content("Invalid form submission")
+    expect(page).to have_content("fuck the man.")
   end
 end

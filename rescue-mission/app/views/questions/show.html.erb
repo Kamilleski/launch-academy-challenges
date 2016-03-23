@@ -11,6 +11,19 @@
   <strong>Description:</strong>
   <%= @question.description %>
 </p>
-<%= link_to 'I can answer this!', new_question_answer_path(@question.id) %>
+<%= link_to 'I can answer this!', new_question_answer_path(@question) %><br />
+
+<p>
+  <strong>Answers:</strong>
+  <ul>
+    <% @answers.each do |answer| %>
+      <li>
+        <%= answer.body %>
+      </li>
+    <% end %>
+  </ul>
+
+</p>
+
 
 <%= link_to 'Back to Questions list', root_path %>

@@ -6,6 +6,7 @@ class QuestionsController < ApplicationController
   def show
     @question = Question.find(params[:id])
     @submitter = User.where(id: @question.user_id).first.name
+    @answers = @question.answers
   end
 
   def new
@@ -25,7 +26,7 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-  
+
   end
 
   def updated
