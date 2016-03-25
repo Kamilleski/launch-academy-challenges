@@ -19,13 +19,11 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @error = true
     @question = Question.new(question_params)
     if @question.save
-      @error = false
       render :show
     else
-      flash[:error] = "Invalid form submission"
+      flash[:error] = @question.errors.full_messages.join(", ")
       render :new
     end
   end
@@ -41,7 +39,7 @@ class QuestionsController < ApplicationController
     if @question.save
      redirect_to @question
     else
-     flash[:error] = "Recheck your update..."
+     flash[:error] = @question.errors.full_messages.join(", ")
      redirect_to edit_question_path(@question)
     end
   end

@@ -1,8 +1,5 @@
 <h2>New Answer for:</h2>
 <h3><%= @question.title%></h3>
-<% if @error %>
-  <%= flash[:error] %>
-<% end %>
 
 <%= form_for [@question, @answer] do |f| %>
   <div class="field">

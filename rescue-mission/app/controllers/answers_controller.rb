@@ -14,12 +14,10 @@ class AnswersController < ApplicationController
     @answer = Answer.new(answer_params)
     @answer.question = @question
 
-    @error = true
     if @answer.save
-      @error = false
       redirect_to question_path(@question)
     else
-      flash[:error] = "Invalid form submission"
+      flash[:error] = @answer.errors.full_messages.join(", ")
       render :new
     end
   end

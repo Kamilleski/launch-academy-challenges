@@ -15,3 +15,5 @@ feature 'edits an answer' do
 
     visit questions_path
     click_on "the title must be 40 characters or more, so I'm just going to keep typing. Is this 40 characters yet?"
+  end
+end
