@@ -17,7 +17,7 @@ describe('evening exercise', function() {
 
   it('you should be able to determine the location of an item in an array', function() {
     expect(eveningExerciseAnswers.indexOf(a, 3)).to.eql(2);
-    expect(eveningExerciseAnswers.indexOf(a, 5)).to.eql(-1);
+    expect(eveningExerciseAnswers.indexOf(a, 4)).to.eql(-1);
   });
 
   it('you should be able to add the values of an array', function() {

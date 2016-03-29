@@ -10,7 +10,7 @@ describe("Communications System", function(){
     // This helps us track what the Comm system does!
 
     var message = "Ground control to major tom - Come in major tom!"
-    console.log();
+    console.log(message);
     expect(console.log).toHaveBeenCalledWith(message);
   });
 });
@@ -21,7 +21,7 @@ describe("Manufacturing plant", function(){
 
     var object = {
       size: "Generic",
-      nane: "Generic"
+      name: "Generic"
     };
 
     expect(object.size).toEqual("Generic");
@@ -32,14 +32,13 @@ describe("Manufacturing plant", function(){
 describe("Iterative Cortex", function(){
   it("knows how to iterate", function(){
     // The spaceship is going to be going over some loops, so it better know how to iterate dynamically!
-    // I want to add all the numbers in this array together, but I can't get the iterator to stop once i've hit he last item in the array! I've got it stopping at 40 loops, and I *could* do it manually, but I need to make sure it stops no matter *what* size the array is! 
+    // I want to add all the numbers in this array together, but I can't get the iterator to stop once i've hit he last item in the array! I've got it stopping at 40 loops, and I *could* do it manually, but I need to make sure it stops no matter *what* size the array is!
     // Thanks! - Sleepy Jerry
 
     var array = [1, 1, 2, 3, 5, 8];
-    var length = 40;
     var total = 0;
 
-    for(var i = 0; i < length; i++){
+    for(var i = 0; i < array.length; i++){
       total  = total + array[i]
     }
     expect(total).toEqual(20);
@@ -56,7 +55,7 @@ describe("Functional Mainframe", function(){
     };
 
     // I call the function, why isn't result being changed???
-    testResult;
+    testResult();
 
     expect(result).toEqual(4);
   });
@@ -64,7 +63,7 @@ describe("Functional Mainframe", function(){
 
     var testAdder = function(){
       // I'm more used to Ruby, honestly. Why isn't this passing?
-      2 + 2 
+      return 2 + 2
     };
 
     var four = testAdder();
