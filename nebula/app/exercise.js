@@ -10,15 +10,15 @@ exports.eveningExerciseAnswers = {
 
   indexOf : function(arr, item) {
 
-    return arr.findIndex(item);
+    return arr.findIndex(arr, item);
 
   },
 
   sum : function(arr) {
 
-    return arr.reduce(function a, b) {
+    return arr.reduce(function(a, b) {
       return a + b;
-    }
+    });
 
   },
 
@@ -26,26 +26,26 @@ exports.eveningExerciseAnswers = {
 
     for (var i = 0; i < arr.length; i++) {
       if (arr[i] === item) {
-        arr.splice(i, 1)
+        arr.splice(i, 1);
       }
     }
-    return arr
+    return arr;
 
   },
 
   reverseString : function(str) {
 
-    return str.split('').reverse().join('')
+    return str.split('').reverse().join('');
 
   },
 
   longestSubString : function(str) {
 
-    var strArray = str.split('')
-    var longest = strArray[1]
-    for (var = 0; i < strArray.length; i++) {
-      if strArray[i].length > longest.length {
-        var longest = strArray[i]
+    var strArray = str.split('');
+    var longest = strArray[0];
+    for (var i = 0; i < strArray.length; i++) {
+      if (strArray[i].length > longest.length) {
+        var longest = strArray[i];
       };
     };
     return longest;
@@ -58,10 +58,10 @@ exports.eveningExerciseAnswers = {
 
   capitalizeWords : function(str) {
 
-    var strArray = str.split(' ')
+    var strArray = str.split(' ');
     for (var i = 0; i < strArray.length; i++) {
-      strArray[i].charAt(0).toUpperCase + strArray[i].slice(1)
+      strArray[i].charAt(0).toUpperCase + strArray[i].slice(1);
     }
-    return strArray.join(' ')
+    return strArray.join(' ');
   }
 };
