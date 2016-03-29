@@ -2,6 +2,12 @@ exports = (typeof window === 'undefined') ? global : window;
 
 exports.regexAnswers = {
   containsNumber : function(str) {
+    if (str.includes("[0-9]")) {
+      return true
+    }
+    else {
+      return false
+    }
 
   },
 

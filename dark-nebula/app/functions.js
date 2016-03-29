@@ -2,7 +2,18 @@ exports = (typeof window === 'undefined') ? global : window;
 
 exports.functionsAnswers = {
   isPrime : function(num) {
+    var ret = true;
 
+     for (i = 2; i < num; i++) {
+       if (num % i === 0) {
+         ret = ret && false;
+       break;
+       }
+       else if (num % i !== 0) {
+         ret = ret && true;
+       }
+     }
+     return ret; 
   },
 
   arraySum : function(array) {
