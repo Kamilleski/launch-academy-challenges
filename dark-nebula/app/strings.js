@@ -13,20 +13,21 @@ exports.stringsAnswers = {
     }
     return newString;
   },
+
   wordWrap: function(str, cols) {
-    var strArray = str.split('')
-    for (var i = cols + 1; i < strArray.length; i += cols) {
-      if (strArray[i] == ' ') {
-        strArray.splice(i, 1, "\n")
-        i++
-      }
-      else {
-        strArray.splice(i, 0, "\n")
-        i += 1
-      }
-    }
-    var kamille = strArray.join('')
-    return kamille
+    var words = str.split(' ');
+    var lines = [];
+    var i = 0;
+    while (i < words.length) {
+      var line = words[i] + ' ';
+      i++;
+      while ((line + words[i]).length <= cols && i < words.length) {
+        line += words[i] + ' ';
+        i++;
+      };
+      lines.push(line.trim());
+    };
+    return lines.join('\n');
   },
 
   reverseString: function(str) {

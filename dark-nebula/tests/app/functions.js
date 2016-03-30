@@ -7,8 +7,10 @@ describe('functions', function() {
 
   it('should return true or false based on a number being prime', function() {
     var _true = functionsAnswers.isPrime(5);
+    var _true2 = functionsAnswers.isPrime(2);
     var _false = functionsAnswers.isPrime(100);
     expect(_true).to.eql(true);
+    expect(_true2).to.eql(true);
     expect(_false).to.eql(false);
   });
 
