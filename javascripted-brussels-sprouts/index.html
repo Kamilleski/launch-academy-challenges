@@ -31,14 +31,19 @@
 
   <body>
     <div class="container">
-      <h2>Good Dishes</h2>
-      <ul id="dishes">
-        <li>Roasted Brussels Sprouts</li>
-      </ul>
+      <h2 id="recipes">Good Dishes</h2>
 
       <hr />
 
       <h2>New Dish</h2>
+      <script>
+        function stopDefAction(evt) {
+            evt.preventDefault();
+        }
+
+        document.getElementById('dish-submit').addEventListener(
+            'click', stopDefAction, false);
+      </script>
       <form id="dish-form" action="/dishes">
         <label for="dish-name">Dish name</label>
         <input id="dish-name" type="text" name="dish-name" />
@@ -100,8 +105,32 @@
        // This line invokes the functions we defined above.
        getJSON(output, dishes);
 
-       // Write your code below. Start by typing `dishes` in your browser console to see what the array contains.
+       var finder = /brussels sprout/i
+       var goodDishes = [];
+       var badDishes = [];
+       var separator = function(arr, regex) {
+         for (var i = 0; i < arr.length; i++) {
+           if (arr[i].match(regex)) {
+             goodDishes.push(arr[i]);
+           }
+           else {
+             badDishes.push(arr[i]);
+           }
+         }
+       };
 
+       separator(dishes, finder);
+
+       function makeRecipeList(arr) {
+         var list = document.createElement('ul');
+         for (var i = 0; i < arr.length; i++) {
+           var item = document.createElement('li');
+           item.appendChild(document.createTextNode(arr[i]));
+           list.appendChild(item);
+         }
+         return list;
+       };
+       document.getElementById("recipes").appendChild(makeRecipeList(goodDishes))
     </script>
   </body>
 </html>
