@@ -26,7 +26,7 @@ end
 
 get '/dishes/random.json' do
   content_type :json
-
+  
   { recipe: random_recipe }.to_json
 end
 

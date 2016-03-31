@@ -1,17 +1,25 @@
-// YOUR CODE GOES HERE
+var page = 2;
 
-//change its action to append:  http://localhost:4567/tweets.json?page=<%= page +1 %>
+// stop default event from happening
+$('.more-sprouts').on('click', function(event) {
+  event.preventDefault();
 
-//find button id
-var button = document.getElementsByClassName('more-sprouts')[0];
-var tweets_list = document.getElementsByClassName('tweets')[0];
+//existing list of tweets on html template
+  var tweets_list = $('.tweets');
 
-//create function to change href
-var moarSprouts = function() {
-  var url = link.getAttribute("href");
-  link.setAttribute("href", "http://localhost:4567/tweets.json?page=<%= page +1 %>");
-}
+//ajax request to tweets api
+  var request = $.ajax({
+   method: "GET",
+   url: ("/tweets.json?page=" + page),
+  });
 
-//add event listener using button and moarSprouts
-//append next page to tweets_list
-addEventListener()
+//parsing the json and appending it to list
+  request.done(function(newTweets) {
+    for (var i = 0; i < newTweets.length; i++) {
+      tweetBody = newTweets[i]["text"];
+      tweetUser = newTweets[i]["username"];
+      tweets_list.append("<li class='tweet'>" + "<div class='body'>" + tweetBody + "</div>" + "<div class='user'>" + tweetUser + "</div>" + "</li>");
+    }
+    page++
+  });
+});
