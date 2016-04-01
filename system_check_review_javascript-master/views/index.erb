@@ -1,0 +1,15 @@
+<h1>Poros Of the World</h1>
+
+<ul id="poros">
+  <% @poros.each do |poro| %>
+    <li class="poro">
+      <%= poro['name'] %>
+    </li>
+  <% end %>
+</ul>
+
+<form method="post" action="/poros">
+  <label for="poro_name">Title</label>
+  <input type="text" name="name" id="poro_name">
+  <input type="submit" value="Add">
+</form>
