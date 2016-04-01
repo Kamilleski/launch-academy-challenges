@@ -1,5 +1,8 @@
 require "sinatra"
 require "pg"
+require 'pry'
+
+Rack::MethodOverride
 
 configure :development do
   set :db_config, { dbname: "grocery_list_development" }
@@ -49,3 +52,16 @@ post "/groceries" do
 end
 
 #FOR BONUS CHALLENGE ADD CODE BELOW THIS COMMENT
+
+def delete_grocery(name)
+  db_connection do |conn|
+    sql_query = "DELETE FROM groceries WHERE NAME = ($1)"
+    conn.exec_params(sql_query, [name])
+  end
+end
+
+delete "/groceries" do
+  item = params[:item]
+  delete_grocery(item)
+  redirect "/groceries"
+end
