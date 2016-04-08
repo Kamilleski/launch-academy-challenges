@@ -35,6 +35,7 @@ University:
   - Type (Liberal Arts, State University, Research, etc.)
   - Undergraduate body size
   - Graduate body size (if applicable)
+  - US News Ranking API?
 
 Review:
   - Tourist
@@ -42,6 +43,7 @@ Review:
   - Date of tour
   - Star rating
   - Comments
+
 
 *Model Interaction*
 There are separate logins for tourists and tour guides. Tour guides are verified with a .edu email address. Tourists can view all guides' first names/pictures/majors for on each university page. Clicking on a tour guide will show more information about that person and include a contact link that will begin the coordination process between tourist and tour guide. After a tour is conducted tourists will be able to leave reviews on their tour guide's page, which will later be viewable on that guide's details page. Tours will be unique in that a certain percentage of the time must also be spent OFF CAMPUS and that guides will be no-holds-barred on true/relevant information for tourists.
