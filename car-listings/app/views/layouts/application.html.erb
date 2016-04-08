@@ -11,6 +11,9 @@
     <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
   <% end %>
 
+<%= link_to "List of Cars", cars_path  %>
+<%=  link_to "List of Manufacturers", manufacturers_path %>
+
 <%= yield %>
 
 </body>

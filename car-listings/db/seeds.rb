@@ -3,3 +3,8 @@ Manufacturer.create(name: "Land Rover", country: "UK")
 Manufacturer.create(name: "Audi", country: "Germany")
 Manufacturer.create(name: "Ferrari", country: "Italy")
 Manufacturer.create(name: "Hyundai", country: "South Korea")
+
+Car.create(manufacturer_id: 2, color: "Forest Green", year: "1975" , mileage: "107540")
+Car.create(manufacturer_id: 1, color: "Silver", year: "2015" , mileage: "30000")
+Car.create(manufacturer_id: 4, color: "Baby Blue", year: "2016" , mileage: "0")
+Car.create(manufacturer_id: 3, color: "Red", year: "2011" , mileage: "85462")

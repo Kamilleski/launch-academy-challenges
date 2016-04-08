@@ -1,28 +1,30 @@
-== README
+I was able to get all functionality implemented except for that related to the association between car and manufacturer. I was unable to get the form to accept a manufacturer from the current list of submitted manufacturers, so those tests do not pass and that parameter does not get sent.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+STILL PROUD OF MYSELF, THOUGH.
 
-Things you may want to cover:
+***************************
 
-* Ruby version
+As a car salesperson
+I want to record a car manufacturer
+So that I can keep track of the types of cars found in the lot
 
-* System dependencies
+Acceptance Criteria:
 
-* Configuration
+I must specify a manufacturer name and country.
+If I do not specify the required information, I am presented with errors.
+If I specify the required information, the manufacturer is recorded and I am redirected to the index of manufacturers
 
-* Database creation
+***************************
 
-* Database initialization
+As a car salesperson
+I want to record a newly acquired car
+So that I can list it in my lot
 
-* How to run the test suite
+Acceptance Criteria:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+I must specify the manufacturer, color, year, and mileage of the car (an association between the car and an existing manufacturer should be created).
+Only years from 1920 and above can be specified.
+I can optionally specify a description of the car.
+If I enter all of the required information in the required formats, the car is recorded and I am presented with a notification of success.
+If I do not specify all of the required information in the required formats, the car is not recorded and I am presented with errors.
+Upon successfully creating a car, I am redirected back to the index of cars.
