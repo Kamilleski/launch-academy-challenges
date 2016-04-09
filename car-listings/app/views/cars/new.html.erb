@@ -2,12 +2,15 @@
 
 <%= form_for [@manufacturer, @car] do |f| %>
   <%= f.label :manufacturer %>
-  <%= f.select(:manufacturer, options_from_collection_for_select(@manufacturer_collection, 'id', 'name')) %>
+  <%= f.select(:manufacturer_id, options_from_collection_for_select(@manufacturer_collection, 'id', 'name')) %>
   <br />
 
-  <%= f.label :color %>
-  <%= f.text_field :color %>
-  <br />
+  <div class="field">
+    <%= f.label :color %>
+    <%= f.text_field :color %>
+    <br />
+  </div>
+
 
   <%= f.label :year %>
   <%= f.text_field :year %>

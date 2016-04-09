@@ -2,9 +2,11 @@ require 'rails_helper'
 
 feature 'user adds a car' do
   scenario 'user successfully adds a car' do
+
     visit new_car_path
 
-    select "Tesla", from: "car_manufacturer"
+    save_and_open_page
+    select "Tesla", from: "car_manufacturer_id"
     fill_in "Color", with: "Baby Blue"
     fill_in "Year", with: "2016"
     fill_in "Mileage", with: "0"
